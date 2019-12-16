@@ -1,0 +1,112 @@
+<title>Cahaya Cell</title>
+<!-- source code css-->
+<style>
+.logo {
+	width:100%;
+	padding:50px 0 0 0;
+	background-color:#FF69B4;
+}
+.para1 {
+	text-align: center;
+	color: black;
+	font-family: times news roman;
+	font-size: 50px;
+	padding:100px 0 0 0px;
+}
+p{
+	background-color: #DA70D6;
+	width:100%;
+	height:120px;
+	margin:0 0 0 0;
+}
+body {font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	background-color:#DA70D6;
+	font-size: medium;
+	text-align: center;
+	position: relative;
+}
+#navcontainer ul{margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+	font-family: times news roman;
+}
+#navcontainer a {font-family: times news roman;
+	font-size: x-large;
+	color:#000000
+	text-decoration: none;
+
+}
+#logout {margin-right: 10px;
+	margin-top: 100px;
+	padding-left: 0;
+	list-style-type: none;
+	font-family: times news roman;
+	text-align: bottom;
+	font-size: large;
+	color:#000000 ;
+	text-decoration: none;
+
+}
+.style1 {font-size:x-large;
+		text-align:center;
+		color:black;
+		padding-top: 50px;
+}
+
+footer {
+	background-color:#FF69B4;
+	width:100%;
+	text-decoration-color: black
+	height:80px;
+	margin:0 0 0 0;
+</style>
+<!--akhir source code css-->
+
+
+</head>
+<body onload="cekcookie()">
+<table rules=cols width="700" border="0" align="center">
+<tr>
+<td colspan="2">
+<p class="logo" align="center"><img src="../gambar/kuma.png" height="100"align="center" border="0">
+<h class="para1">Marcela Yolanda</h></p></h>
+<tr>
+	<td width="600" height="130" align="left" valign="top"><div id="navcontainer">
+
+<ul>
+<li id="linkhome"><a href="index.php?p=cv.php">Home</a></li>
+<li id="linksekolah"><a href="index.php?p=sekolah.php">Sekolah</a></li> 
+<li id="linkgaleri"><a href="index.php?p=galery.php">Galery</a></li>
+<li id="linkmusic"><a href="index.php?p=music.php">Music</a></li>
+</ul>
+</div>
+	<div style="margin-top: 400px">
+	<?php
+		if (isset($_COOKIE["user"]))
+		{
+			$nm=explode("-",$_COOKIE["user"]);
+			echo $nm[1]."<br />".$nm[0]."<br/><a href=logout.php>logout</a>";
+		}
+	?>
+	</div></td>
+	<td width="600" align="left" valign="top">
+	<?php
+		if(isset($_REQUEST["p"]))
+		{
+			$p=$_REQUEST["p"];
+			include $p;"cv.php";
+		}
+		else
+		{
+			include "cv.php";
+		}
+	?>
+		
+</td>
+</tr>
+<tr>
+<td colspan="2"><footer class="style1">Copyright &copy; Marcela Yolanda</footer></td></tr>
+</table>
+</body>
+</html>
